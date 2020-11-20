@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  
+div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.alap {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background-color: green;
+  display: flex;
+  padding: 0;
+  margin: 200px auto 0;
+  /* width: 100vw;
+  height: 100vh; */
+  justify-content: center;
+  align-items: center;  
+}
+
+@-webkit-keyframes lepkeAni {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(20deg);
+            transform: rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: rotateY(80deg);
+            transform: rotateY(80deg);
+  }
+}
+
+@keyframes lepkeAni {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(20deg);
+            transform: rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: rotateY(80deg);
+            transform: rotateY(80deg);
+  }
+}
+
+@-webkit-keyframes lepkeAniVissza {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(20deg);
+            transform: rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: rotateY(80deg);
+            transform: rotateY(80deg);
+  }
+}
+
+@keyframes lepkeAniVissza {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(20deg);
+            transform: rotateY(20deg);
+  }
+  100% {
+    -webkit-transform: rotateY(80deg);
+            transform: rotateY(80deg);
+  }
+}
+
+.alap #lepkeContainerOrigo1 {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(90px, -10px) rotate(18deg);
+          transform: translate(90px, -10px) rotate(18deg);
+  width: 40px;
+}
+
+.alap:hover #lepkeContainerOrigo1 .lepkeContainer {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(0, -250px);
+          transform: translate(0, -250px);
+  -webkit-transition: -webkit-transform 2.5s;
+  transition: -webkit-transform 2.5s;
+  transition: transform 2.5s;
+  transition: transform 2.5s, -webkit-transform 2.5s;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+.alap:hover #lepkeContainerOrigo1 .lepkeContainer .lepkeBal {
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+.alap:hover #lepkeContainerOrigo1 .lepkeContainer .lepkeJobb {
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.alap:hover #lepkeContainerOrigo1 .lepkeContainer .lepkeBal, .alap:hover #lepkeContainerOrigo1 .lepkeContainer .lepkeJobb {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-animation: lepkeAni 0.4s infinite;
+          animation: lepkeAni 0.4s infinite;
+  -webkit-animation-iteration-count: 8;
+          animation-iteration-count: 8;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.alap #lepkeContainerOrigo2 {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(-70px, -70px) rotate(-45deg);
+          transform: translate(-70px, -70px) rotate(-45deg);
+  width: 40px;
+}
+
+.alap:hover #lepkeContainerOrigo2 .lepkeContainer {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(0, -190px);
+          transform: translate(0, -190px);
+  -webkit-transition: -webkit-transform 3.16667s;
+  transition: -webkit-transform 3.16667s;
+  transition: transform 3.16667s;
+  transition: transform 3.16667s, -webkit-transform 3.16667s;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.alap:hover #lepkeContainerOrigo2 .lepkeContainer .lepkeBal {
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+.alap:hover #lepkeContainerOrigo2 .lepkeContainer .lepkeJobb {
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.alap:hover #lepkeContainerOrigo2 .lepkeContainer .lepkeBal, .alap:hover #lepkeContainerOrigo2 .lepkeContainer .lepkeJobb {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-animation: lepkeAni 0.4s infinite;
+          animation: lepkeAni 0.4s infinite;
+  -webkit-animation-iteration-count: 6;
+          animation-iteration-count: 6;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.alap #lepkeContainerOrigo3 {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(-100px, 100px) rotate(-110deg);
+          transform: translate(-100px, 100px) rotate(-110deg);
+  width: 40px;
+}
+
+.alap:hover #lepkeContainerOrigo3 .lepkeContainer {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(0, -120px);
+          transform: translate(0, -120px);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
+  -webkit-transition-delay: 0.01s;
+          transition-delay: 0.01s;
+}
+
+.alap:hover #lepkeContainerOrigo3 .lepkeContainer .lepkeBal {
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+.alap:hover #lepkeContainerOrigo3 .lepkeContainer .lepkeJobb {
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.alap:hover #lepkeContainerOrigo3 .lepkeContainer .lepkeBal, .alap:hover #lepkeContainerOrigo3 .lepkeContainer .lepkeJobb {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-animation: lepkeAni 0.4s infinite;
+          animation: lepkeAni 0.4s infinite;
+  -webkit-animation-iteration-count: 10;
+          animation-iteration-count: 10;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.alap #lepkeContainerOrigo4 {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(75px, 100px) rotate(110deg);
+          transform: translate(75px, 100px) rotate(110deg);
+  width: 40px;
+}
+
+.alap:hover #lepkeContainerOrigo4 .lepkeContainer {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(0, -200px);
+          transform: translate(0, -200px);
+  -webkit-transition: -webkit-transform 3.33333s;
+  transition: -webkit-transform 3.33333s;
+  transition: transform 3.33333s;
+  transition: transform 3.33333s, -webkit-transform 3.33333s;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.alap:hover #lepkeContainerOrigo4 .lepkeContainer .lepkeBal {
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+.alap:hover #lepkeContainerOrigo4 .lepkeContainer .lepkeJobb {
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.alap:hover #lepkeContainerOrigo4 .lepkeContainer .lepkeBal, .alap:hover #lepkeContainerOrigo4 .lepkeContainer .lepkeJobb {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-animation: lepkeAni 0.4s infinite;
+          animation: lepkeAni 0.4s infinite;
+  -webkit-animation-iteration-count: 10;
+          animation-iteration-count: 10;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.alap #lepkeContainerOrigo5 {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(40px, -60px) rotate(90deg);
+          transform: translate(40px, -60px) rotate(90deg);
+  width: 40px;
+}
+
+.alap:hover #lepkeContainerOrigo5 .lepkeContainer {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: translate(0, -100px);
+          transform: translate(0, -100px);
+  -webkit-transition: -webkit-transform 1.66667s;
+  transition: -webkit-transform 1.66667s;
+  transition: transform 1.66667s;
+  transition: transform 1.66667s, -webkit-transform 1.66667s;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.alap:hover #lepkeContainerOrigo5 .lepkeContainer .lepkeBal {
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+.alap:hover #lepkeContainerOrigo5 .lepkeContainer .lepkeJobb {
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.alap:hover #lepkeContainerOrigo5 .lepkeContainer .lepkeBal, .alap:hover #lepkeContainerOrigo5 .lepkeContainer .lepkeJobb {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-animation: lepkeAni 0.4s infinite;
+          animation: lepkeAni 0.4s infinite;
+  -webkit-animation-iteration-count: 10;
+          animation-iteration-count: 10;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.alap .lepkeContainer {
+  width: 40px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transition: -webkit-transform 4s;
+  transition: -webkit-transform 4s;
+  transition: transform 4s;
+  transition: transform 4s, -webkit-transform 4s;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.alap .lepkeContainer .lepkeBal {
+  width: 45%;
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+.alap .lepkeContainer .lepkeJobb {
+  width: 45%;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.alap .lepkeContainer .lepkeBal, .alap .lepkeContainer .lepkeJobb {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-animation: lepkeAniVissza 0.4s infinite;
+          animation: lepkeAniVissza 0.4s infinite;
+  -webkit-animation-iteration-count: 8;
+          animation-iteration-count: 8;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.alap .lepkeContainer .lepkeKozep {
+  width: 10%;
+}
+</style>
+<body>
+  <div class="alap">
+    <div id="lepkeContainerOrigo1">
+      <div class="lepkeContainer">
+        <img class="lepkeBal fel le" src="img/lepke_bal.png" alt="">
+        <img class="lepkeKozep" src="img/lepke_kozep.png" alt="">
+        <img class="lepkeJobb fel le" src="img/lepke_jobb.png" alt="">
+      </div>  
+    </div>
+    <div id="lepkeContainerOrigo2">
+      <div class="lepkeContainer">
+        <img class="lepkeBal fel le" src="img/lepke_bal.png" alt="">
+        <img class="lepkeKozep" src="img/lepke_kozep.png" alt="">
+        <img class="lepkeJobb fel le" src="img/lepke_jobb.png" alt="">
+      </div>  
+    </div>
+    <div id="lepkeContainerOrigo3">
+      <div class="lepkeContainer">
+        <img class="lepkeBal fel le" src="img/lepke_bal.png" alt="">
+        <img class="lepkeKozep" src="img/lepke_kozep.png" alt="">
+        <img class="lepkeJobb fel le" src="img/lepke_jobb.png" alt="">
+      </div>  
+    </div>
+    <div id="lepkeContainerOrigo4">
+      <div class="lepkeContainer">
+        <img class="lepkeBal fel le" src="img/lepke_bal.png" alt="">
+        <img class="lepkeKozep" src="img/lepke_kozep.png" alt="">
+        <img class="lepkeJobb fel le" src="img/lepke_jobb.png" alt="">
+      </div>  
+    </div>
+    <div id="lepkeContainerOrigo5">
+      <div class="lepkeContainer">
+        <img class="lepkeBal fel le" src="img/lepke_bal.png" alt="">
+        <img class="lepkeKozep" src="img/lepke_kozep.png" alt="">
+        <img class="lepkeJobb fel le" src="img/lepke_jobb.png" alt="">
+      </div>  
+    </div>
+  </div>
+</body>
+</html>

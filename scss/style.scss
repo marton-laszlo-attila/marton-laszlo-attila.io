@@ -1,0 +1,19 @@
+//  VS Code - settings.json 
+
+//  "liveSassCompile.settings.formats": [
+//     {
+//         "format": "expanded",
+//         // "extensionName": ".css",
+//         "savePath": "/css"
+//     }
+//  ]
+//  A lefordított style.css fájlt a css/ mappába menti el.
+
+// variable
+@import "config";
+
+// tag
+@import 'main';
+
+// page
+@import 'page';

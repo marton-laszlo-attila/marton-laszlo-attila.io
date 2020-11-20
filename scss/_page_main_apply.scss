@@ -1,0 +1,107 @@
+//  page > main > apply section
+
+.applySection {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between;
+
+  .applyForm {
+    width: 47%;
+    text-align: center;
+    justify-content: center;
+    padding: $globalPadding;
+    border-radius: $globalRadius;
+    background-color:#105229;
+    box-shadow: $globalShadow;
+    color: #8fe0a9ad;  //eredeti szín #019263ed
+
+    h2 {
+      margin-top: 20px;
+      color: #5dea4c96 ;  //Eredeti szín #15a526bf
+      
+    }
+    .fg4 {
+      display: block;
+      p {
+        padding: 5px;
+      }
+    }
+    .form-group{
+      margin: 20px auto;
+    }
+    .form-group2{
+      margin: 20px auto;
+    }
+    .form-group3{
+      margin: 20px auto;
+    }
+    label{
+      display: block;
+      
+    }
+    button{
+      margin: 20px auto;
+      width: 170px;
+      padding: 10px;
+      background-color: #599201;
+      color: white;
+      border: none;
+      border-radius: $globalRadius;
+      box-shadow: $globalShadow;
+    }
+  }
+ 
+  .applyFormDescription {
+    width: 47%; 
+    margin-bottom: -5px;       
+    
+    h2 {
+      font-size: 2.1em;
+      // margin-bottom: 30px;
+    }
+
+    h3 {
+      margin: 10px 0 0 0;
+      font-size: 1.2em;
+    }
+
+    p, li {
+      color: #444;
+      font-size: 0.9em;
+      line-height: 1.5em;
+    }
+  }
+
+  .applyOpinions {
+    width: 100%;
+    margin-top: $globalPadding;
+    display: flex;
+    justify-content: space-between;
+    
+
+    .applyOpinionItem {
+      margin-bottom: $globalPadding/2;
+      // text-align: justify;
+      font-size: 0.9em;
+      width: 30%;
+    }
+
+    .applyOpinionDate {
+      font-weight: bold;
+    }
+
+    .applyOpinionImg {
+      width: 80px;
+      float: left;
+      margin-right: $globalPadding/4;
+      margin-bottom: 5px;
+      border-radius: $globalRadius;
+      border: $globalBorder;
+    }
+
+    p {
+      clear: both;
+    }
+  }
+}
+
