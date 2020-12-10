@@ -44,6 +44,9 @@ function initGame() {
 
   // a játéktér frissítése 20ms-onként
   interval = setInterval(updateGameArea, 20);
+
+  // háttérzene lejátszás
+  soundPlay('bgMusic', 'play', 0.5);    
 }
 
 //-----------------------------------
@@ -108,12 +111,18 @@ function shadowShipCoord() {
 }
 
 // a SHIP lángcsóvájának megjelenítése és eltünteése
-function shipPlumeShow(show, op) {  
+function shipPlumeShow(show, op) { 
   for (let i = 0; i < op.length; i++) {
     let className = '.shipPlume' + op[i];
     let plume = document.querySelector(className);
-    if (show === true) plume.classList.add('shipPlumeShow');
-    else plume.classList.remove('shipPlumeShow');
+    if (show === true) {
+      soundPlay('shipSound', 'play');
+      plume.classList.add('shipPlumeShow');
+    }
+    else {
+      plume.classList.remove('shipPlumeShow');
+      soundPlay('shipSound', 'stop'); 
+    }
   }
 }
 
@@ -201,6 +210,7 @@ let bullet = {
 
       // láthatóvá teszem a BULLET-et
       bulletShow(1);
+      soundPlay('bulletSound', 'play');
     }
     else {
       // visszaindul a golyó
@@ -510,6 +520,7 @@ function updateGameArea() {
         ship.shield += ship.shieldIn;
         flys.splice(i, 1);
         document.getElementById(fly.id).remove();
+        soundPlay('flySound', 'play');
       }        
     }
   }
@@ -541,6 +552,7 @@ function updateGameArea() {
       ship.morsel -= 1;
       // törlés a MAP-ról
       document.getElementById(morsel.id).remove();
+      soundPlay('morselSound', 'play');
     } 
   }
 
@@ -635,4 +647,11 @@ function objectOrigo(object) {
   let top  = parseInt(object.style.top) + parseInt(object.style.height)/2;
 
   return {left: left, top: top}
+}
+
+function soundPlay(obj, op, volume = 1) {
+  let mp3 = document.getElementById(obj);
+  mp3.volume = volume;
+  if (op === 'play') mp3.play();
+  if (op === 'stop') mp3.load();
 }
