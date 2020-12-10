@@ -1,19 +1,425 @@
-//  VS Code - settings.json 
+$mapWidth: 1000;
+$mapHeight: 1000;
+$clipWidth: 300;
+$clipHeight: 300;
 
-//  "liveSassCompile.settings.formats": [
-//     {
-//         "format": "expanded",
-//         // "extensionName": ".css",
-//         "savePath": "/css"
-//     }
-//  ]
-//  A lefordított style.css fájlt a css/ mappába menti el.
+body {
+  background-color: #444;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  background-image: url('../img/intro_back.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
 
-// variable
-@import "config";
+  // intro
+  .intro {
+    background-color: #000;    
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 
-// tag
-@import 'main';
+    .introBack {
+      width: 800px;
+      height: 480px;
+      position: relative;
+      // background-color: #444;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      background-image: url('../img/intro_back.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      padding: 40px 0 0 100px;
+      box-sizing: border-box;
 
-// page
-@import 'page';
+      svg {
+        z-index: 9999;
+        width: 368px;
+
+        text {
+          font-size: 100px;
+          stroke:black;
+          stroke-width: 5;
+          font-family: 'Big Shoulders Stencil Text', cursive;
+          font-weight: 900;
+          margin: 0 0 15px;
+          z-index: 9999;
+          animation: textAnimate 5s alternate;
+        }
+      }
+
+      @keyframes textAnimate {
+        0%{
+          stroke-dasharray: 0 50%;
+          stroke-dashoffset: 20%;
+        }
+        100%{
+          stroke-dasharray: 50% 0;
+          stroke-dashoffset: -20%;
+        }
+        
+      }
+
+      .start {
+        font-size: 14px;
+        padding: 7px 5px 5px;
+        cursor: pointer;
+        background-color: #ffff0088;
+        width: 348px;
+        text-align: center;
+
+        &:hover {
+          background-color: #ffffff88;
+        }
+      }
+      .create {
+        position: absolute;
+        right: 90px;
+        top: 100px;
+        letter-spacing: 1px;
+        
+        h2 {
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.1em;
+          margin-bottom: 8px;
+          font-weight: bold;
+        }
+
+        .copy {
+          margin-top: 3px;
+        }
+      } 
+    }
+
+  }
+
+  //win/lose 
+
+  .lastStage {
+    background-color: #000;    
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+
+    .lastStageBack {
+      width: 800px;
+      height: 480px;
+      position: relative;
+      // background-color: #444;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      background-image: url('../img/intro_back.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+           
+      .win,
+      .lose {
+        text-align: center;
+        justify-content: center;
+        box-sizing: border-box;
+        font-size: 35px;
+        color: white;
+        text-shadow: -3px 5px 9px #000;
+        letter-spacing: 2px;
+      }
+      
+      svg {
+        z-index: 9999;
+        width: 368px;
+        margin: 0 auto 15px;
+        
+        text {
+          font-size: 100px;
+          stroke:black;
+          stroke-width: 5;
+          font-family: 'Big Shoulders Stencil Text', cursive;
+          font-weight: 900;
+          margin: 0 0 15px;
+          z-index: 9999;
+          // animation: textAnimate 5s alternate;
+        }
+      }
+      
+      // @keyframes textAnimate {
+      //   0%{
+      //     stroke-dasharray: 0 50%;
+      //     stroke-dashoffset: 20%;
+      //   }
+      //   100%{
+      //     stroke-dasharray: 50% 0;
+      //     stroke-dashoffset: -20%;
+      //   }
+        
+      // }
+      
+      .start {
+        font-size: 14px;
+        padding: 7px 5px 5px;
+        cursor: pointer;
+        background-color: #ffff0088;
+        width: 300px;
+        text-align: center;
+        margin: auto;
+        
+        &:hover {
+          background-color: #ffffff88;
+        }
+      }
+      .create {
+        position: absolute;
+        right: 90px;
+        top: 100px;
+        letter-spacing: 1px;
+        
+        h2 {
+          font-size: 1.1em;
+          margin-bottom: 8px;
+          font-weight: bold;
+        }
+        
+        .copy {
+          margin-top: 3px;
+        }
+      } 
+      
+    }
+  }
+
+  .hide {
+    display: none;
+    visibility: hidden;
+  }
+
+  // játék
+  .origo {
+    width: 1px;
+    height: 1px;
+    background-color: #000;
+    position: relative;
+
+    .dataContainer {
+      width: 100px;
+      position: absolute;
+      left: -340px;
+      top: -240px;
+      font-size: 19px;      
+      color: #111;
+      line-height: 1.5em;
+
+      span {
+        font-weight: normal;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        color: rgb(206, 206, 4);
+      }
+    }
+
+    .controlContainer {
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      left: 260px;
+      top: -240px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 10px 10px;
+      grid-template-areas: ". c1 ." "c2 c3 c4" "c5 c5 c5";
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ddd;
+        color: #111;
+        border-radius: 4px;
+        padding-top: 3px;
+      }
+      .c1 { grid-area: c1; }
+      .c2 { grid-area: c2; }
+      .c3 { grid-area: c3; }
+      .c4 { grid-area: c4; }
+      .c5 { grid-area: c5; }
+    }
+
+    .clip {
+      z-index: 1000;
+      background-color: #555555aa;
+      position: absolute;
+      width: #{$mapWidth}px;
+      height: #{$mapHeight}px;
+      left: -#{$mapWidth/2}px;
+      top: -#{$mapHeight/2}px;
+      // kivágás
+      clip-path: circle(#{$clipWidth/1.2}px);
+      $top: ($mapHeight - $clipHeight)/2;
+      $left: ($mapWidth - $clipWidth)/2;
+      // ez csak munka
+      // .oc {
+      //   width: 2px;
+      //   height: 2px;
+      //   left: #{$mapWidth/2-1}px;
+      //   top: #{$mapWidth/2-1}px;
+      //   position: absolute;
+      //   background-color: #000;
+      //   z-index: 999;
+      // }
+
+      // .pont {
+      //   width:2px;
+      //   height: 2px;
+      //   // background-color: #000;
+      //   position: absolute;
+      //   z-index: 999999;
+      // }
+      // eddig
+
+      .ship {
+        width: 10px;
+        height: 20px;
+        border-radius: 50%;
+        left: #{$mapWidth/2-5}px;
+        top: #{$mapWidth/2-5}px;
+        position: absolute;
+        background-color: #3df900;
+        z-index: 1;
+        
+        .shipPlumeBottom, 
+        .shipPlumeTopLeft, 
+        .shipPlumeTopRight {
+          position: absolute;
+          z-index: 20;
+          background-color: rgb(255, 255, 211);
+          box-shadow: 0 0 3px 1px #ff0;
+          transition: all 0.5s;
+          opacity: 0;
+        }
+        .shipPlumeBottom {
+          top: 23px;
+          left: 4px;
+          width: 2px;
+          height: 10px;          
+        }
+
+        .shipPlumeTopLeft,
+        .shipPlumeTopRight {
+          top: -5px;
+          left: 10px;
+          width: 2px;
+          height: 7px;
+          transform: rotateZ(45deg);
+          transform-origin: center bottom;
+        }
+
+        .shipPlumeTopRight  {
+          left: -2px;
+          transform: rotateZ(-45deg);
+        }
+
+        .shipPlumeShow {
+          opacity: 0.6;
+        }
+
+      }
+
+      .shadowShip {
+        background-color: red; // #00000000;
+        z-index: -10;
+        width: 2px;
+        height: 2px;
+        left: #{$mapWidth/2-5}px;
+        top: #{$mapWidth/2-5}px;
+      }
+
+      #bullet {
+        background-color: rgb(155, 155, 248);
+        z-index: 90;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        left: #{$mapWidth/2-5}px;
+        top: #{$mapWidth/2-5}px;
+        position: absolute;
+        opacity: 0;
+      }
+
+      .map {
+        position: relative;
+        width: #{$mapWidth}px;
+        height: #{$mapHeight}px;
+        background-image: url('../img/hatter.jpg');
+        background-size: 50% 50%;
+        transform: rotate(0deg), translateY(0px);
+        
+              // ez csak munka
+        .oc1 {
+          width: 2px;
+          height: 2px;
+          left: #{$mapWidth/2-1}px;
+          top: #{$mapWidth/2-1}px;
+          position: absolute;
+          background-color: #000;
+          z-index: 200;
+        }
+        // eddig
+
+        .asteroid {
+          position: absolute;
+          background-color: #777;
+          box-shadow: 0 0 3px 2px #fff;
+          border-radius: 4px;
+        }
+
+        .fly {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          left: 0;
+          top: 0;
+          border-radius: 50%;
+          background-color: #e6e64d;
+          z-index: 100;
+          // transition: all 1s;
+        }
+
+        .morsel {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          left: 0;
+          top: 0;
+          background-color: blue;
+        }
+      }
+    }
+  }
+}
+
+p, div{
+  font-family: 'Roboto', sans-serif;
+}
